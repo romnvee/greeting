@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вітання для Жені!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Щоб не було прокручування */
+            background: linear-gradient(135deg, #FFD1DC, #FFECB3, #B3E0FF); /* Ніжні рожевий, жовтий, блакитний */
+            font-family: 'Montserrat', sans-serif; /* Використовуємо Montserrat для всього */
+            color: #333; /* Темно-сірий, майже чорний, для контрасту */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Займаємо всю висоту вікна */
+            text-align: center;
+            position: relative;
+            padding: 20px; /* Невеликий відступ від країв для мобільних пристроїв */
+            box-sizing: border-box;
+        }
+
+        /* Контейнер для фонових жабок */
+        .background-frogs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Щоб не блокувати взаємодію з основним контентом */
+            overflow: hidden;
+            z-index: 1; /* Розміщуємо за основним контейнером */
+        }
+
+        .background-frog-image {
+            position: absolute;
+            width: 90px; /* Трохи більші, щоб були помітніші */
+            height: auto;
+            opacity: 0.15; /* Напівпрозорі, щоб були фоном */
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.03)); /* Дуже легка тінь */
+            transition: opacity 1s ease-out; /* Плавне з'явлення при завантаженні */
+        }
+
+        /* Основний контейнер з текстом */
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Більш прозорий білий */
+            padding: 30px 40px; /* Менші відступи для компактності */
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: fadeInScale 1.5s ease-out forwards;
+            position: relative;
+            z-index: 10; /* Вище фонових жабок */
+            max-width: 500px; /* Ще менша максимальна ширина */
+            width: 100%; /* Займаємо 100% доступної ширини */
+            box-sizing: border-box;
+            backdrop-filter: blur(10px); /* Сильніший ефект розмиття */
+            border: 2px solid rgba(255, 255, 255, 0.8); /* Легка рамка */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Центруємо вміст по вертикалі всередині контейнера */
+            min-height: calc(100vh - 40px); /* Висота контейнера, щоб вмістити все без прокручування */
+        }
+
+        h1 {
+            font-size: 3.5em; /* Менший розмір для компактності */
+            margin-bottom: 10px;
+            color: #FF69B4; /* Яскравий рожевий */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1.2s ease-out forwards;
+            opacity: 0;
+            font-weight: 700; /* Жирніший шрифт */
+        }
+
+        p {
+            font-size: 1.4em; /* Менший розмір тексту */
+            margin-top: 15px;
+            color: #555;
+            animation: fadeInText 1.5s ease-out forwards;
+            opacity: 0;
+            line-height: 1.4;
+            font-weight: 500; /* Середня жирність */
+        }
+
+        .highlight {
+            color: #8A2BE2; /* Насичений фіолетовий */
+            font-weight: 700;
+        }
+
+        .emoji {
+            font-size: 1.1em;
+        }
+
+        .signature-block {
+            display: flex;
+            align-items: center; /* Вирівнюємо елементи по центру вертикально */
+            justify-content: center; /* Центруємо горизонтально */
+            margin-top: 25px;
+            animation: fadeInText 1.5s ease-out forwards;
+            opacity: 0;
+            animation-delay: 2.8s; /* Затримка для всього блоку підпису */
+        }
+
+        .signature-image {
+            width: 70px; /* Розмір зображення */
+            height: 70px;
+            border-radius: 50%; /* Робимо зображення круглим */
+            object-fit: cover; /* Обрізаємо зображення, щоб воно вміщалося в коло */
+            margin-right: 15px; /* Відступ від тексту */
+            border: 3px solid #FF69B4; /* Ніжна рожева рамка */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Легка тінь */
+        }
+
+        .signature-text {
+            font-size: 1.2em;
+            color: #777;
+            font-weight: 600;
+        }
+
+
+        /* Анімації */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.2); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.95); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-frogs" id="frogBackground">
+        </div>
+
+    <div class="container">
+        <h1> Женю, вітаю! 🎉</h1>
+        <p style="animation-delay: 0.8s;">
+            Ти <span class="highlight">пережила цю каторгу</span>!
+            <span class="emoji">💪</span>
+        </p>
+        <p style="animation-delay: 1.5s;">
+            Шалено <span class="highlight">пишаюся</span> тобою і всіма твоїми стараннями.
+            Ти крута! <span class="emoji">✨</span>
+        </p>
+
+        <div class="signature-block">
+            <img src="3.png" alt="Фото викладачки Христі" class="signature-image">
+            <span class="signature-text">Твоя викладачка Христя </span>
+        </div>
+    </div>
+
+    <script>
+        const frogBackground = document.getElementById('frogBackground');
+        const frogImages = ['1.png', '2.png']; // Шляхи до твоїх зображень жабок
+
+        const numRows = 4; // Кількість рядків
+        const numCols = 6; // Кількість стовпців
+        const padding = 0.1; // Відступ від країв у % від розміру комірки
+
+        function createStaticBackgroundFrogGrid() {
+            const cellWidth = 100 / numCols; // Ширина уявної комірки у %
+            const cellHeight = 100 / numRows; // Висота уявної комірки у %
+
+            for (let r = 0; r < numRows; r++) {
+                for (let c = 0; c < numCols; c++) {
+                    const frog = document.createElement('img');
+                    frog.classList.add('background-frog-image');
+                    frog.src = frogImages[Math.floor(Math.random() * frogImages.length)]; // Випадкова жабка
+
+                    // Розраховуємо центр комірки
+                    let centerX = (c + 0.5) * cellWidth;
+                    let centerY = (r + 0.5) * cellHeight;
+
+                    // Додаємо невелике випадкове зміщення всередині комірки
+                    const offsetX = (Math.random() * (1 - 2 * padding) + padding) * cellWidth - cellWidth / 2;
+                    const offsetY = (Math.random() * (1 - 2 * padding) + padding) * cellHeight - cellHeight / 2;
+
+                    frog.style.left = (centerX + offsetX) + 'vw';
+                    frog.style.top = (centerY + offsetY) + 'vh';
+
+                    // Забезпечуємо, щоб жабки не виходили за межі
+                    frog.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.4 + 0.8}) rotate(${Math.random() * 360}deg)`; // Центруємо та додаємо випадковий розмір/поворот
+
+                    frog.style.opacity = Math.random() * 0.1 + 0.05; // Від 0.05 до 0.15
+
+                    frogBackground.appendChild(frog);
+                }
+            }
+        }
+
+        createStaticBackgroundFrogGrid();
+    </script>
+</body>
+</html>
